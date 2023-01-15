@@ -1,6 +1,4 @@
 #! /bin/sh
-echo `clear` 
-
 RED='\033[0;31m'
 CY='\033[0;36m'
 GR='\033[0;32m'
@@ -12,6 +10,10 @@ if [ -z "$1" ]
   then
     echo ${PR}"\nerr{0} ${CY}::missing::\n"
 else
+    if [ -z "$2" ]
+        then
+        echo `clear`
+    fi
     if [[ $1 == *".c"* ]]; then
         echo ${PR}"::filename:: ${GR}$1\n${NC}";
         gcc $1 && ./a.out
